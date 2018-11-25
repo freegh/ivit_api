@@ -1,4 +1,4 @@
-package com.ivit.model;
+package com.ivit.google.map.model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "lat", "lng" })
-public class Location {
+public class Northeast {
 
 	@JsonProperty("lat")
 	private Double lat;

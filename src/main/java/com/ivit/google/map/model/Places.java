@@ -1,4 +1,4 @@
-package com.ivit.model;
+package com.ivit.google.map.model;
 
 import java.util.HashMap;
 import java.util.List;

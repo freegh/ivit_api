@@ -1,4 +1,4 @@
-package com.ivit.model;
+package com.ivit.google.map.model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,34 +10,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "lat", "lng" })
-public class Northeast {
+@JsonPropertyOrder({ "location", "viewport" })
+public class Geometry {
 
-	@JsonProperty("lat")
-	private Double lat;
-	@JsonProperty("lng")
-	private Double lng;
+	@JsonProperty("location")
+	private Location location;
+	@JsonProperty("viewport")
+	private Viewport viewport;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("lat")
-	public Double getLat() {
-		return lat;
+	@JsonProperty("location")
+	public Location getLocation() {
+		return location;
 	}
 
-	@JsonProperty("lat")
-	public void setLat(Double lat) {
-		this.lat = lat;
+	@JsonProperty("location")
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
-	@JsonProperty("lng")
-	public Double getLng() {
-		return lng;
+	@JsonProperty("viewport")
+	public Viewport getViewport() {
+		return viewport;
 	}
 
-	@JsonProperty("lng")
-	public void setLng(Double lng) {
-		this.lng = lng;
+	@JsonProperty("viewport")
+	public void setViewport(Viewport viewport) {
+		this.viewport = viewport;
 	}
 
 	@JsonAnyGetter
