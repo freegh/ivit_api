@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.ivit.google.map.model.Places;
 import com.ivit.google.map.model.Result;
-import com.ivit.google.map.model.Temple;
+import com.ivit.model.Temple;
 
 @Controller
 @RequestMapping("/api/user")

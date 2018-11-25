@@ -1,4 +1,4 @@
-package com.ivit.google.map.model;
+package com.ivit.model;
 
 import java.io.Serializable;
 
