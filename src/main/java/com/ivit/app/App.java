@@ -1,4 +1,4 @@
-package com.gusala.app;
+package com.ivit.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @PropertySource("file:config/application.properties")
-@ComponentScan({ "com.gusala.*" })
+@ComponentScan({ "com.ivit.*" })
 public class App {
 
 	public static void main(String[] args) {

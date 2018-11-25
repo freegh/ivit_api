@@ -1,4 +1,4 @@
-package com.gusala.model;
+package com.ivit.model;
 
 public class Temple {
 

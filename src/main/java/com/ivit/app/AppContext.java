@@ -1,4 +1,4 @@
-package com.gusala.app;
+package com.ivit.app;
 import org.springframework.context.ApplicationContext;
 
 /**
