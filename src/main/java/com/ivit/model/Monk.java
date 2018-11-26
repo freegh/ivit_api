@@ -91,4 +91,15 @@ public class Monk implements Serializable {
 		this.comment = comment;
 	}
 
+	public Monk(String name, String nickname, String surname, Integer age, Integer year, String level, String comment) {
+		super();
+		this.name = name;
+		this.nickname = nickname;
+		this.surname = surname;
+		this.age = age;
+		this.year = year;
+		this.level = level;
+		this.comment = comment;
+	}
+
 }
