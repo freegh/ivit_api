@@ -7,11 +7,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @PropertySource("file:config/application.properties")
-@ComponentScan({ "com.ivit.*" })
+@EnableMongoRepositories("com.ivit.mongo")
+@ComponentScan({"com.ivit.*"})
 public class App {
 
 	public static void main(String[] args) {
