@@ -26,8 +26,8 @@ import com.ivit.google.map.model.Result;
 import com.ivit.model.Temple;
 
 @Controller
-@RequestMapping("/api/user")
-public class UserApi {
+@RequestMapping("/api/map")
+public class MapApi {
 
 	@Autowired
 	RestTemplate restTemplate;
