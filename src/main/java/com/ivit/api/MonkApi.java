@@ -61,7 +61,6 @@ public class MonkApi {
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> delete(@PathVariable("id") String id) {
 		Optional<Monk> m = repository.findById(id);
-
 		repository.delete(m.get());
 		return new ResponseEntity<>("Monk is deleted successsfully", HttpStatus.OK);
 	}
