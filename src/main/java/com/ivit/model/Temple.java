@@ -1,6 +1,7 @@
 package com.ivit.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -17,6 +18,11 @@ public class Temple implements Serializable {
 	@Id
 	public ObjectId _id;
 	private String name;
+	private String placeId;
+	private BigDecimal rating;
+	private String lat;
+	private String lng;
+	private String vicinity;
 	public ObjectId get_id() {
 		return _id;
 	}
@@ -28,6 +34,36 @@ public class Temple implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getPlaceId() {
+		return placeId;
+	}
+	public void setPlaceId(String placeId) {
+		this.placeId = placeId;
+	}
+	public BigDecimal getRating() {
+		return rating;
+	}
+	public void setRating(BigDecimal rating) {
+		this.rating = rating;
+	}
+	public String getLat() {
+		return lat;
+	}
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+	public String getLng() {
+		return lng;
+	}
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+	public String getVicinity() {
+		return vicinity;
+	}
+	public void setVicinity(String vicinity) {
+		this.vicinity = vicinity;
 	}
 
 
