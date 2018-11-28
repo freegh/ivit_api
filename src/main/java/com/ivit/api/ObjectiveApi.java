@@ -1,9 +1,7 @@
 package com.ivit.api;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ivit.exception.ServiceException;
 import com.ivit.model.Objective;
-import com.ivit.mongo.ObjectiveRepository;
 import com.ivit.services.CrudService;
 
 @Controller
@@ -25,15 +22,13 @@ import com.ivit.services.CrudService;
 public class ObjectiveApi {
 
 	@Autowired
-	private ObjectiveRepository repository;
-	@Autowired
 	private CrudService<Objective> service;
 	
 	@RequestMapping(value = "/list", method = { RequestMethod.GET })
 	@ResponseBody
-	public List<Objective> list() throws UnsupportedEncodingException {
+	public List<Objective> list() throws ServiceException {
 		ArrayList<Objective> list = new ArrayList<Objective>();
-		for (Objective m : repository.findAll()) {
+		for (Objective m : service.list()) {
 			list.add(m);
 		}
 		return list;
@@ -41,7 +36,7 @@ public class ObjectiveApi {
 
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ResponseEntity<Object> createObjective(@RequestBody Objective obj) {
+	public ResponseEntity<Object> create(@RequestBody Objective obj) {
 		try {
 			service.create(obj);
 			return new ResponseEntity<>("Objective is created successfully", HttpStatus.CREATED);
@@ -51,7 +46,7 @@ public class ObjectiveApi {
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Object> updateObjective(@PathVariable("id") String id, @RequestBody Objective obj) {
+	public ResponseEntity<Object> update(@PathVariable("id") String id, @RequestBody Objective obj) {
 		try {
 			service.update(id,obj);
 			return new ResponseEntity<>("Objective is updated successsfully", HttpStatus.OK);

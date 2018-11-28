@@ -1,9 +1,7 @@
 package com.ivit.api;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,26 +15,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ivit.exception.ServiceException;
 import com.ivit.model.Monk;
-import com.ivit.model.QMonk;
-import com.ivit.mongo.MonkRepository;
 import com.ivit.services.CrudService;
-import com.querydsl.core.types.dsl.BooleanExpression;
 
 @Controller
 @RequestMapping("/api/monk")
 public class MonkApi {
 
-	@Autowired
-	private MonkRepository repository;
 
 	@Autowired
 	private CrudService<Monk> service;
 	
 	@RequestMapping(value = "/list", method = { RequestMethod.GET })
 	@ResponseBody
-	public List<Monk> list() throws UnsupportedEncodingException {
+	public List<Monk> list() throws  ServiceException {
 		ArrayList<Monk> list = new ArrayList<Monk>();
-		for (Monk m : repository.findAll()) {
+		for (Monk m : service.list()) {
 			list.add(m);
 		}
 		return list;
@@ -75,25 +68,15 @@ public class MonkApi {
 	@RequestMapping(value = "/test", method = { RequestMethod.GET })
 	@ResponseBody
 	public void test() {
-		repository.deleteAll();
+		//repository.deleteAll();
 
-		// save a couple of Monks
-		repository.save(new Monk("Alice", "Smith", "Smith", 1, 2, "Smith", "Smith"));
-		repository.save(new Monk("bb", "bb", "cc", 1, 2, "ee", "ff"));
-		// fetch all Monks
-		System.out.println("Monks found with findAll():");
-		System.out.println("-------------------------------");
-		for (Monk Monk : repository.findAll()) {
-			System.out.println(Monk);
-		}
-		System.out.println();
 
-		QMonk qUser = new QMonk("monk");
-		BooleanExpression predicate = qUser.name.eq("Alice");
-		List<Monk> users = (List<Monk>) repository.findAll(predicate);
-		for (Monk Monk : users) {
-			System.out.println(Monk);
-		}
+//		QMonk qUser = new QMonk("monk");
+//		BooleanExpression predicate = qUser.name.eq("Alice");
+//		List<Monk> users = (List<Monk>) repository.findAll(predicate);
+//		for (Monk Monk : users) {
+//			System.out.println(Monk);
+//		}
 		/*
 		 * // fetch an individual Monk
 		 * System.out.println("Monk found with findByFirstName('Alice'):");

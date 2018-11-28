@@ -19,7 +19,4 @@ public class TempleServiceImpl extends DBService<Temple> {
 		return repository.save(entity);
 	}
 
-
-	public void list(Temple obj) throws ServiceException {
-	}
 }

@@ -1,16 +1,23 @@
 package com.ivit.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import com.ivit.exception.ServiceException;
+import com.ivit.model.Temple;
+import com.querydsl.core.types.Predicate;
 
 public abstract class DBService<E> implements CrudService<E> {
 	@Autowired
 	protected MongoRepository<E, String> repository;
 
+	@Autowired
+	protected QuerydslPredicateExecutor<E> queryRepo;
+	
 	@Override
 	public E create(E obj) throws ServiceException {
 		E monk = repository.save(obj);
@@ -27,5 +34,14 @@ public abstract class DBService<E> implements CrudService<E> {
 	public void delete(String id) throws ServiceException {
 		Optional<E> m = repository.findById(id);
 		repository.delete(m.get());
+	}
+	@Override
+	public List<E> search(Predicate predicate) throws ServiceException{
+		return (List<E>) queryRepo.findAll(predicate);
+	}
+	
+	@Override
+	public List<E> list() throws ServiceException {
+		return repository.findAll();
 	}
 }

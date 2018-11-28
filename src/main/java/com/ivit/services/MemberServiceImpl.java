@@ -19,7 +19,4 @@ public class MemberServiceImpl extends DBService<Member> {
 		return repository.save(entity);
 	}
 
-
-	public void list(Member obj) throws ServiceException {
-	}
 }
