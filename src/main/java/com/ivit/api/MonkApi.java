@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ivit.exception.ServiceException;
 import com.ivit.model.Monk;
 import com.ivit.model.QMonk;
 import com.ivit.mongo.MonkRepository;
+import com.ivit.services.CrudService;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
 @Controller
@@ -27,6 +29,9 @@ public class MonkApi {
 	@Autowired
 	private MonkRepository repository;
 
+	@Autowired
+	private CrudService<Monk> service;
+	
 	@RequestMapping(value = "/list", method = { RequestMethod.GET })
 	@ResponseBody
 	public List<Monk> list() throws UnsupportedEncodingException {
@@ -39,23 +44,22 @@ public class MonkApi {
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ResponseEntity<Object> createMonk(@RequestBody Monk obj) {
-		repository.save(obj);
-		return new ResponseEntity<>("Monk is created successfully", HttpStatus.CREATED);
+		try {
+			service.create(obj);
+			return new ResponseEntity<>("Monk is created successfully", HttpStatus.CREATED);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>("Monk is created fail", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateMonk(@PathVariable("id") String id, @RequestBody Monk obj) {
-		Optional<Monk> m = repository.findById(id);
-		Monk entity = m.get();
-		entity.setAge(obj.getAge());
-		entity.setComment(obj.getComment());
-		entity.setLevel(obj.getLevel());
-		entity.setName(obj.getName());
-		entity.setNickname(obj.getNickname());
-		entity.setSurname(obj.getSurname());
-		entity.setYear(obj.getYear());
-		repository.save(entity);
-		return new ResponseEntity<>("Monk is updated successsfully", HttpStatus.OK);
+		try {
+			service.update(id,obj);
+			return new ResponseEntity<>("Monk is updated successsfully", HttpStatus.OK);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>("Monk is updated fail", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
