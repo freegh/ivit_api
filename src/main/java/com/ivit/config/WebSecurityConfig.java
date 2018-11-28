@@ -13,10 +13,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().and().authorizeRequests().antMatchers("/","/v2/api-docs", "/assets/**","/swagger-resources/**").permitAll().anyRequest().authenticated()
-				.and().formLogin().loginPage("/login").loginProcessingUrl("/j_spring_security_check")
-				.usernameParameter("j_username").passwordParameter("j_password").permitAll().and().logout()
-				.logoutUrl("/logout").permitAll();
+		http.csrf()
+		.and()
+		.authorizeRequests()
+		.antMatchers("/","/v2/api-docs", "/assets/**","/swagger-resources/**").permitAll()
+		.anyRequest().authenticated()
+		.and()
+		.formLogin().loginPage("/login")
+		.loginProcessingUrl("/j_spring_security_check")
+		.usernameParameter("j_username")
+		.passwordParameter("j_password").permitAll()
+		.and()
+		.logout().logoutUrl("/logout").permitAll();
 
 	}
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="../templates/base">
+<head>
+
+</head>
+<th:block layout:fragment="pagescript">
+<script type="text/javascript" src="assets/js/app/dashboard.js"></script>
+</th:block>
+<body>
+<div class="page-header page-header-default" layout:fragment="header">
+					<div class="page-header-content">
+						<div class="page-title">
+							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Home</span> - Dashboard</h4>
+						</div>
+
+					</div>
+
+					<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
+							<li class="active">Dashboard</li>
+						</ul>
+
+					</div>
+</div>
+
+<div class="content" layout:fragment="content">
+
+</div>
+
+
+</body>
+</html>

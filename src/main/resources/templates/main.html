@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>EAI Log Monitor</title>
+    <link href="css/application.min.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta charset="utf-8"/>
+    <script>
+    </script>
+</head>
+<body>
+<div class="logo" th:replace="../fragments/menu_header :: logo"></div>
+<nav id="sidebar" class="sidebar nav-collapse collapse" th:replace="../fragments/menu_header :: sidebar"></nav>
+<div class="wrap">
+<header class="page-header" th:replace="../fragments/menu_header :: header"></header>        
+        
+        
+ <div class="content container" layout:fragment="content">
+ 
+ </div>
+
+        
+        <div class="loader-wrap hiding hide">
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+</div>
+
+<!-- common libraries. required for every page-->
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/jquery-pjax/jquery.pjax.js"></script>
+<script src="lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+<script src="lib/widgster/widgster.js"></script>
+<script src="lib/underscore/underscore.js"></script>
+
+<!-- common application js -->
+<script src="js/app.js"></script>
+<script src="js/settings.js"></script>
+
+<!-- common templates -->
+<script type="text/template" id="settings-template">
+    <div class="setting clearfix">
+        <div>Sidebar on the</div>
+        <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+
+            <button type="button" data-value="left" class="btn btn-sm btn-default">Left</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-default">Right</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar</div>
+        <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+
+            <button type="button" data-value="true" class="btn btn-sm btn-default">Show</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-default">Hide</button>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="sidebar-settings-template">
+    <button type="button" data-value="icons" class="btn-icons btn btn-transparent btn-sm">Icons</button>
+    <button type="button" data-value="auto" class="btn-auto btn btn-transparent btn-sm">Auto</button>
+</script>
+
+    <!-- page specific scripts -->
+        <!-- page libs -->
+        <script src="lib/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="lib/jquery.sparkline/index.js"></script>
+
+        <script src="lib/backbone/backbone.js"></script>
+        <script src="lib/backbone.localStorage/backbone.localStorage-min.js"></script>
+
+        <script src="lib/d3/d3.min.js"></script>
+        <script src="lib/nvd3/build/nv.d3.min.js"></script>
+
+        <!-- page application js -->
+        <script src="js/index.js"></script>
+        <script src="js/chat.js"></script>
+
+        <!-- page template -->
+        <script type="text/template" id="message-template">
+            <div class="sender pull-left">
+                <div class="icon">
+                    <img src="img/2.png" class="img-circle" alt=""/>
+                </div>
+                <div class="time">
+                    just now
+                </div>
+            </div>
+            <div class="chat-message-body">
+                <span class="arrow"></span>
+                <div class="sender"><a href="#">Tikhon Laninga</a></div>
+                <div class="text">
+
+                </div>
+            </div>
+        </script>
+        <!-- page libs -->
+        <script src="lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <script src="lib/jquery-autosize/dist/autosize.min.js"></script>
+        <script src="lib/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
+        <script src="lib/select2/select2.min.js"></script>      
+        <script src="lib/moment/moment.js"></script>        
+        <script src="lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="lib/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+
+        <script src="lib/datatables/media/js/jquery.dataTables.min.js"></script>
+
+        <!-- page application js -->
+        <th:block layout:fragment="pagescript"></th:block>
+        
+</body>
+</html>
