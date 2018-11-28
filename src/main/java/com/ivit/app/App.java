@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @PropertySource("file:config/application.properties")
-@EnableMongoRepositories("com.ivit.mongo")
 @ComponentScan({"com.ivit.*"})
 public class App {
 

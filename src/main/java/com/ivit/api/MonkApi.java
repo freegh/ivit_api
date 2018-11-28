@@ -64,9 +64,12 @@ public class MonkApi {
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> delete(@PathVariable("id") String id) {
-		Optional<Monk> m = repository.findById(id);
-		repository.delete(m.get());
-		return new ResponseEntity<>("Monk is deleted successsfully", HttpStatus.OK);
+		try {
+			service.delete(id);
+			return new ResponseEntity<>("Monk is updated successsfully", HttpStatus.OK);
+		} catch (ServiceException e) {
+			return new ResponseEntity<>("Monk is updated fail", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@RequestMapping(value = "/test", method = { RequestMethod.GET })

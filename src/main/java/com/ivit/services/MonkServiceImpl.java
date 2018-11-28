@@ -25,8 +25,9 @@ public class MonkServiceImpl implements CrudService<Monk> {
 		Optional<Monk> op = repository.findById(id);
 		return op.get();
 	}
+
 	@Override
-	public Monk update(String id,Monk obj) throws ServiceException {
+	public Monk update(String id, Monk obj) throws ServiceException {
 		Optional<Monk> m = repository.findById(id);
 		Monk entity = m.get();
 		entity.setAge(obj.getAge());
@@ -39,8 +40,10 @@ public class MonkServiceImpl implements CrudService<Monk> {
 		return repository.save(entity);
 	}
 
-	public int delete(Monk obj) throws ServiceException {
-		return 0;
+	@Override
+	public void delete(String id) throws ServiceException {
+		Optional<Monk> m = repository.findById(id);
+		repository.delete(m.get());
 	}
 
 	public void list(Monk obj) throws ServiceException {

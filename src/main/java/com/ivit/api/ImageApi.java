@@ -43,7 +43,7 @@ public class ImageApi {
 	// this variable is used to store ImageId for other actions like: findOne or delete
 	private String imageFileId = "5bfd0ad7dcd4f3355839f704";
  
-	@GetMapping("/save")
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveFiles() throws MalformedURLException, IOException  {
 
 		DBObject metaData = new BasicDBObject();
@@ -70,7 +70,7 @@ public class ImageApi {
 				.body(new InputStreamResource(res.getInputStream()));
 	}
 	
-	@GetMapping("/delete/image")
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public String deleteFile(@PathVariable("id") String id){
 		service.delete(id);
 		return "Done";
