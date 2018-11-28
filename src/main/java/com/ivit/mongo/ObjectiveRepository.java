@@ -5,6 +5,6 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import com.ivit.model.Monk;
 import com.ivit.model.Objective;
 
-public interface ObjectiveRepository extends MongoRepository<Objective, String>, QuerydslPredicateExecutor<Monk> {
+public interface ObjectiveRepository extends MongoRepository<Objective, String>, QuerydslPredicateExecutor<Objective> {
 
 }

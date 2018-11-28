@@ -15,11 +15,7 @@ public class BookingServiceImpl extends DBService<Booking> {
 		Optional<Booking> m = repository.findById(id);
 		Booking entity = m.get();
 
-
 		return repository.save(entity);
 	}
 
-
-	public void list(Booking obj) throws ServiceException {
-	}
 }

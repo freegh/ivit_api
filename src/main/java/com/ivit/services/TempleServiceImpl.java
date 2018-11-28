@@ -19,4 +19,5 @@ public class TempleServiceImpl extends DBService<Temple> {
 		return repository.save(entity);
 	}
 
+
 }

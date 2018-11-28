@@ -24,4 +24,6 @@ public class MonkServiceImpl extends DBService<Monk> {
 		return repository.save(entity);
 	}
 
+
+
 }

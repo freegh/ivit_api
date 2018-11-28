@@ -9,7 +9,7 @@ import com.ivit.model.Member;
 
 @Service
 public class MemberServiceImpl extends DBService<Member> {
-
+	
 	@Override
 	public Member update(String id, Member obj) throws ServiceException {
 		Optional<Member> m = repository.findById(id);
@@ -18,5 +18,6 @@ public class MemberServiceImpl extends DBService<Member> {
 		entity.setUpdateDate(obj.getUpdateDate());
 		return repository.save(entity);
 	}
+
 
 }

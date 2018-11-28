@@ -5,6 +5,6 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import com.ivit.model.Monk;
 import com.ivit.model.Temple;
 
-public interface TempleRepository extends MongoRepository<Temple, String>, QuerydslPredicateExecutor<Monk> {
+public interface TempleRepository extends MongoRepository<Temple, String>, QuerydslPredicateExecutor<Temple> {
 
 }
