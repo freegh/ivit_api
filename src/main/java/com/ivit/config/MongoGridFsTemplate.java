@@ -1,8 +1,6 @@
 package com.ivit.config;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +10,7 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
@@ -38,7 +34,7 @@ public class MongoGridFsTemplate  extends AbstractMongoConfiguration{
 	@Value("${app.mongodb.database}")
 	private String database;	
 	
-	@Bean
+/*	@Bean
 	public GridFsTemplate gridFsTemplate() throws Exception {
 	    return new GridFsTemplate(new SimpleMongoDbFactory(
 				new MongoClient(new ServerAddress(mongoAddress, mongoPort),
@@ -46,21 +42,7 @@ public class MongoGridFsTemplate  extends AbstractMongoConfiguration{
 								MongoCredential.createCredential(username, authenticationDB, password.toCharArray()))),
 				database), mappingMongoConverter());
 	}
-	/*
-	@Bean
-	public Mongo mongo() throws Exception {
-
-	List<ServerAddress> servers = new ArrayList<ServerAddress>();
-	servers.add(new ServerAddress(mongoAddress, mongoPort));
-
-	List<MongoCredential> creds = new ArrayList<MongoCredential>();
-	creds.add(MongoCredential.createCredential(username, authenticationDB, password.toCharArray()));
-
-	MongoClientOptions builder = MongoClientOptions.builder().socketTimeout(5000).connectTimeout(5000).build();
-
-	return new MongoClient(servers, creds, builder);
-	}	
-	*/
+*/
 	@Override
 	protected String getDatabaseName() {
 		return mongoDatabase;

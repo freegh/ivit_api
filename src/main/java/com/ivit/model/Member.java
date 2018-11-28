@@ -1,6 +1,7 @@
 package com.ivit.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -18,6 +19,7 @@ public class Member implements Serializable {
 	public ObjectId _id;
 	private String name;
 	private String email;
+	private LocalDateTime updateDate;
 	public ObjectId get_id() {
 		return _id;
 	}
@@ -35,6 +37,12 @@ public class Member implements Serializable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(LocalDateTime updateDate) {
+		this.updateDate = updateDate;
 	}
 
 

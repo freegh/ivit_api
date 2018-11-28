@@ -2,6 +2,7 @@ package com.ivit.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -23,6 +24,7 @@ public class Temple implements Serializable {
 	private String lat;
 	private String lng;
 	private String vicinity;
+	private LocalDateTime updateDate;
 	public ObjectId get_id() {
 		return _id;
 	}
@@ -64,6 +66,12 @@ public class Temple implements Serializable {
 	}
 	public void setVicinity(String vicinity) {
 		this.vicinity = vicinity;
+	}
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(LocalDateTime updateDate) {
+		this.updateDate = updateDate;
 	}
 
 
