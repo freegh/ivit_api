@@ -1,8 +1,6 @@
 package com.ivit.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,15 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.ivit.api.web.model.DatatableRequest;
-import com.ivit.api.web.model.DatatableResult;
-import com.ivit.model.Monk;
 
 @Controller
 public class DashboardController {
-	@RequestMapping("/")
+	@RequestMapping(value = "/", method = { RequestMethod.GET })
 	public void index(Model model, HttpServletResponse response) {
 		try {
 			response.sendRedirect("/dashboard");
@@ -27,7 +20,7 @@ public class DashboardController {
 		}
 	}
 
-	@RequestMapping("/dashboard")
+	@RequestMapping(value ="/dashboard", method = { RequestMethod.GET })
 	public String dashboard(Model model, HttpServletResponse response) {
 
 		return "../dashboard/index";
