@@ -6,4 +6,4 @@ COPY src/main/webapp /src/main/webapp
 COPY src/main/resources /src/main/resources
 COPY target/api-1.0-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-#EXPOSE 5557 45001 27301
+EXPOSE 8888
