@@ -1,7 +1,6 @@
 package com.ivit.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.bson.types.ObjectId;
@@ -20,9 +19,9 @@ public class Temple implements Serializable {
 	public ObjectId _id;
 	private String name;
 	private String placeId;
-	private BigDecimal rating;
-	private String lat;
-	private String lng;
+	private Double rating;
+	private Double lat;
+	private Double lng;
 	private String vicinity;
 	private LocalDateTime updateDate;
 	public ObjectId get_id() {
@@ -43,22 +42,23 @@ public class Temple implements Serializable {
 	public void setPlaceId(String placeId) {
 		this.placeId = placeId;
 	}
-	public BigDecimal getRating() {
+
+	public Double getRating() {
 		return rating;
 	}
-	public void setRating(BigDecimal rating) {
+	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-	public String getLat() {
+	public Double getLat() {
 		return lat;
 	}
-	public void setLat(String lat) {
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
-	public String getLng() {
+	public Double getLng() {
 		return lng;
 	}
-	public void setLng(String lng) {
+	public void setLng(Double lng) {
 		this.lng = lng;
 	}
 	public String getVicinity() {

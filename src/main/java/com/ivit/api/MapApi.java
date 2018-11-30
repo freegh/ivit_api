@@ -45,7 +45,7 @@ public class MapApi {
 
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
 				.queryParam("location", lat + "," + lng)
-				.queryParam("radius", "1000")
+				.queryParam("radius", "10000")
 				.queryParam("key", mapkey)
 				.queryParam("language", "th")
 				.queryParam("name", name);
@@ -58,8 +58,13 @@ public class MapApi {
 		if (response.getBody().getResults() != null) {
 			for (Result p : response.getBody().getResults()) {
 				Temple e = new Temple();
-				System.out.println(p.getName());
+				//System.out.println(p.getName());
 				e.setName(p.getName());
+				e.setLat(p.getGeometry().getLocation().getLat());
+				e.setLng(p.getGeometry().getLocation().getLng());
+				e.setPlaceId(p.getPlaceId());
+				e.setRating(p.getRating());
+				e.setVicinity(p.getVicinity());
 				list.add(e);
 			}
 		}

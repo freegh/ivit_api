@@ -18,6 +18,8 @@ public class Member implements Serializable {
 	@Id
 	public ObjectId _id;
 	private String name;
+	private String fbid;
+	private String picture;
 	private String email;
 	private LocalDateTime updateDate;
 	public ObjectId get_id() {
@@ -31,6 +33,18 @@ public class Member implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getFbid() {
+		return fbid;
+	}
+	public void setFbid(String fbid) {
+		this.fbid = fbid;
+	}
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 	public String getEmail() {
 		return email;
