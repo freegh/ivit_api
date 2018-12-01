@@ -6,6 +6,8 @@
 
 </head>
 <th:block layout:fragment="pagescript">
+	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
 <script type="text/javascript" src="assets/js/app/dashboard.js"></script>
 </th:block>
 <body>
@@ -26,8 +28,55 @@
 					</div>
 </div>
 
-<div class="content" layout:fragment="content">
+<div class="content" layout:fragment="content"> 
+					<!-- Basic responsive configuration -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">Booking</h5>
+							<div class="heading-elements">
+								<ul class="icons-list" id="mqControl">
+			                		<li><a data-action="collapse"></a></li>
+			                		<li><a data-action="reload"></a></li>
+			                		<li><a data-action="close"></a></li>
+			                	</ul>
+		                	</div>
+						</div>
 
+						<table id="tblmq" class="table datatable-responsive">
+							<thead>
+								<tr>
+									<th>Txn code</th>
+									<th>Response code</th>
+									<th>From account</th>
+									<th>To account</th>
+									<th>Time</th>
+									<th class="text-center">Actions</th>
+								</tr>
+							</thead>
+							
+						</table>
+					</div>
+					<!-- /basic responsive configuration -->
+					
+	<div id="modal_large" class="modal fade" style="display: none;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">x</button>
+						<h5 class="modal-title">VDO Logs</h5>
+					</div>
+
+					<div class="modal-body">
+						<span id="result"></span>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 </div>
 
 

@@ -1,16 +1,30 @@
 package com.ivit.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.ivit.api.web.model.DatatableRequest;
+import com.ivit.api.web.model.DatatableResult;
+import com.ivit.exception.ServiceException;
+import com.ivit.model.Booking;
+import com.ivit.services.BookingServiceImpl;
 
 @Controller
 public class DashboardController {
+	
+	@Autowired
+	private BookingServiceImpl booking;
+	
 	@RequestMapping(value = "/", method = { RequestMethod.GET })
 	public void index(Model model, HttpServletResponse response) {
 		try {
@@ -25,29 +39,29 @@ public class DashboardController {
 
 		return "../dashboard/index";
 	}
-/*
-	@RequestMapping(value = "/listVdo", method = { RequestMethod.POST })
+
+	@RequestMapping(value = "/listBooking", method = { RequestMethod.GET })
 	@ResponseBody
-	public DatatableResult<Monk> listVdo(DatatableRequest search) {
-		DatatableResult<Monk> result = new DatatableResult<Monk>();
-		List<Monk> vdolist = mQUtils.readVDOLog();
+	public DatatableResult<Booking> listBooking(DatatableRequest search) throws ServiceException {
+		DatatableResult<Booking> result = new DatatableResult<Booking>();
+		List<Booking> data = booking.list();
 
-		ArrayList<Monk> list = null;
-		if (vdolist != null && !vdolist.isEmpty()) {
-			list = new ArrayList<Monk>();
+		ArrayList<Booking> list = null;
+		if (data != null && !data.isEmpty()) {
+			list = new ArrayList<Booking>();
 
-			for (int i=0;i<vdolist.size();i++) {
+			for (int i=0;i<data.size();i++) {
 
-					list.add(vdolist.get(i));
+					list.add(data.get(i));
 
 			}
-			result.setRecordsFiltered(vdolist.size());
-			result.setRecordsTotal(vdolist.size());
+			result.setRecordsFiltered(data.size());
+			result.setRecordsTotal(data.size());
 		}
 
 		result.setData(list);
 		result.setDraw(search.getDraw());
 
 		return result;
-	}*/
+	}
 }

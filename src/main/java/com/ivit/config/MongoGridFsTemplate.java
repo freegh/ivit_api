@@ -3,11 +3,8 @@ package com.ivit.config;
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
-import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.mongodb.MongoClient;
@@ -50,9 +47,7 @@ public class MongoGridFsTemplate  extends AbstractMongoConfiguration{
 
 	@Override
 	public MongoClient mongoClient() {
-		return new MongoClient(new ServerAddress(mongoAddress, mongoPort),
-				Collections.singletonList(
-						MongoCredential.createCredential(username, authenticationDB, password.toCharArray())));
+		return new MongoClient(new ServerAddress(mongoAddress, mongoPort), Collections.singletonList(MongoCredential.createCredential(username, authenticationDB, password.toCharArray())));
 	}
 
 }
