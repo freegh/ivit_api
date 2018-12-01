@@ -38,14 +38,15 @@ public class MapApi {
 
 	@RequestMapping(value = "/temple", method = { RequestMethod.GET })
 	@ResponseBody
-	public List<Temple> list(@RequestParam("lat") String lat, @RequestParam("lng") String lng, @RequestParam(value="name",required=false) String name) throws UnsupportedEncodingException {
+	public List<Temple> list(@RequestParam("lat") String lat, @RequestParam("lng") String lng, @RequestParam(value="name",required=false) String name
+			, @RequestParam(value="radius",required=false, defaultValue = "10000") String radius) throws UnsupportedEncodingException {
 		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
 
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
 				.queryParam("location", lat + "," + lng)
-				.queryParam("radius", "10000")
+				.queryParam("radius", radius)
 				.queryParam("key", mapkey)
 				.queryParam("language", "th")
 				.queryParam("name", name);
@@ -58,7 +59,6 @@ public class MapApi {
 		if (response.getBody().getResults() != null) {
 			for (Result p : response.getBody().getResults()) {
 				Temple e = new Temple();
-				//System.out.println(p.getName());
 				e.setName(p.getName());
 				e.setLat(p.getGeometry().getLocation().getLat());
 				e.setLng(p.getGeometry().getLocation().getLng());

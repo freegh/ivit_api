@@ -25,6 +25,7 @@ public class Booking implements Serializable {
 	private LocalDateTime todate;
 
 	private String objective;
+	private String placeId;
 	private List<Monk> monks;
 
 	public ObjectId get_id() {
@@ -73,6 +74,14 @@ public class Booking implements Serializable {
 
 	public void setMonks(List<Monk> monks) {
 		this.monks = monks;
+	}
+
+	public String getPlaceId() {
+		return placeId;
+	}
+
+	public void setPlaceId(String placeId) {
+		this.placeId = placeId;
 	}
 
 }
