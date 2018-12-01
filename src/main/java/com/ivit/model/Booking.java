@@ -25,7 +25,12 @@ public class Booking implements Serializable {
 	private LocalDateTime todate;
 
 	private String objective;
-	private String placeId;
+	private String templeId;
+	private String lat;
+	private String lng;
+	private Integer quantity;
+	private String payment;
+	private String status;
 	private List<Monk> monks;
 
 	public ObjectId get_id() {
@@ -76,12 +81,54 @@ public class Booking implements Serializable {
 		this.monks = monks;
 	}
 
-	public String getPlaceId() {
-		return placeId;
+	public String getTempleId() {
+		return templeId;
 	}
 
-	public void setPlaceId(String placeId) {
-		this.placeId = placeId;
+	public void setTempleId(String templeId) {
+		this.templeId = templeId;
 	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getPayment() {
+		return payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 }
