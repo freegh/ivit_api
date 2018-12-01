@@ -23,6 +23,8 @@ public class Temple implements Serializable {
 	private Double lat;
 	private Double lng;
 	private String vicinity;
+	private String icon;
+	
 	private LocalDateTime updateDate;
 	public ObjectId get_id() {
 		return _id;
@@ -72,6 +74,12 @@ public class Temple implements Serializable {
 	}
 	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
+	}
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 
 

@@ -65,6 +65,7 @@ public class MapApi {
 				e.setPlaceId(p.getPlaceId());
 				e.setRating(p.getRating());
 				e.setVicinity(p.getVicinity());
+				e.setIcon(p.getIcon());
 				list.add(e);
 			}
 		}
