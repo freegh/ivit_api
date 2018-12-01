@@ -27,6 +27,7 @@ public class Booking implements Serializable {
 	private String email;
 	private String objective;
 	private String templeId;
+	private String templeName;
 	private String lat;
 	private String lng;
 	private Integer quantity;
@@ -145,6 +146,14 @@ public class Booking implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTempleName() {
+		return templeName;
+	}
+
+	public void setTempleName(String templeName) {
+		this.templeName = templeName;
 	}
 
 
