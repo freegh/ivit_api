@@ -24,11 +24,13 @@ public class Booking implements Serializable {
 	private LocalDateTime fromdate;
 	private LocalDateTime todate;
 
+	private String email;
 	private String objective;
 	private String templeId;
 	private String lat;
 	private String lng;
 	private Integer quantity;
+	private String tel;
 	private String payment;
 	private String status;
 	private List<Monk> monks;
@@ -127,6 +129,22 @@ public class Booking implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
